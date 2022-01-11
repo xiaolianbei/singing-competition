@@ -3,7 +3,7 @@ import React from 'react';
 function Logout(props) {
 
   const onLogin =()=>{
-    window.location.href = '/';
+    window.location.href = './';
   }
   return (
   	  <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
