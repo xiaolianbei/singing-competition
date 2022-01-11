@@ -1,8 +1,15 @@
+import React,{useState,useEffect} from 'react';
 import { useForm } from "react-hook-form";
-import React from "react";
 import { useLoginMutation } from "./loginMutation";
 
 function HomeView(props) {
+
+  const [warning,setWarning] = useState(props.warning);
+  
+  useEffect(() => {
+    setWarning(props.warning);
+  
+  },[props.warning])
 
  const [loginMutation, loginMutationResults] = useLoginMutation();
 
@@ -10,7 +17,10 @@ function HomeView(props) {
 
  const disableForm = loginMutationResults.loading;
 
- const onSubmit = (values) => loginMutation(values.email, values.code);
+ const onSubmit = (values) => {
+  setWarning(false);
+  loginMutation(values.email, values.code);
+ }
 
   return (
   	  <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
@@ -22,7 +32,7 @@ function HomeView(props) {
 
                                     <h6 data-aos="fade-up" data-aos-delay="300">Welcome to NAAAC-North America Alumni Alliance Cup Singing Competition Ranking System</h6>
                                     <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">NAAAC</h1>
-                            {props.warning ? (<h6 data-aos="fade-up" data-aos-delay="400" style={{"color":"red"}}>Email or Code is incorrect!</h6>) : ""}
+                            {warning ? (<h6 data-aos="fade-up" data-aos-delay="400" style={{"color":"red"}}>Email or Code is incorrect!</h6>) : ""}
                             <form  onSubmit={handleSubmit(onSubmit)}>>
                               <input type="email" class="form-control" name="cf-name" placeholder="Email"   {...register("email",{ required: "Please enter your email." })}  />
                               <input type="text" class="form-control" name="cf-email" placeholder="Code"  {...register("code",{ required: "Please enter your code." })} />
