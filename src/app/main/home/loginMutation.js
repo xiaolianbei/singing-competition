@@ -24,11 +24,11 @@ export const useLoginMutation = () => {
     onCompleted: (data) => {
       if(data.login!==null){
         setAuthToken(data.login.token);
-        let path = `/list`;
+        let path = `./list`;
         history.push(path);
         return
       }else{
-       let path = `/?warning`;
+       let path = `./?warning`;
         history.push(path);
         return
       }
