@@ -1,7 +1,10 @@
+import React from 'react';
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
-import { useAuthToken } from "./auth";
+import { useAuthToken } from "../auth/auth";
 import { useHistory } from 'react-router-dom';
+import View from "./HomeView"
+
 
 export const loginMutationGQL = gql`
   mutation login($email: String!, $code: String!) {
@@ -21,11 +24,13 @@ export const useLoginMutation = () => {
     onCompleted: (data) => {
       if(data.login!==null){
         setAuthToken(data.login.token);
-        let path = `/list`;
+        let path = `./list`;
         history.push(path);
+        return
       }else{
-        let path = `/?warning`;
+       let path = `./?warning`;
         history.push(path);
+        return
       }
     },
   });

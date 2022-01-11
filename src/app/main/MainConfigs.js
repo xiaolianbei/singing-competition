@@ -1,7 +1,7 @@
 import error404 from './errors/404';
 import home from './home/HomeController';
 import list from './list/ListController';
-
+import Logout from './logout';
 
 const Config = {
 	settings: {
@@ -15,6 +15,10 @@ const Config = {
 		{
 			path: '/list',
 			component: list
+		},
+		{
+			path: '/logout',
+			component: Logout
 		},
 		{
 			path: '/errors/404',
