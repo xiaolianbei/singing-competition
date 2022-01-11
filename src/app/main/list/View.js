@@ -204,11 +204,11 @@ const data = props.data?props.data.songLists: [];
                           <h3 class="text-white" >Welcome to the NAAAC voting system</h3>
                           <br/>
                           <p class="text-white">
-                             You have ten songs to vote for and rank's range is from 1 to 6 with 1 as the highest ranking.
-                             You are only be allowed to vote 6 out of 10 and each of the 6 songs shall have different rankings.
-                             By clicking Submit button, you can commit your voting after the confirm the summary. 
-                             You are allowed to recast your votes after submit. 
-                             Be aware that after --------, all the vots are final, not further submit will be saved. 
+                             You have ten songs to review and you are allowed to vote six out of them. The ranking is 
+                             from 1 to 6 where 1 is the highest rank and 6 is the lowest rank . 
+                             In the six songs that you vote, each ranking should be unique. 
+                             By clicking Submit button, you will see a summary, you can commit your votes after confirming the summary. 
+                             You are allowed to recast your votes before --------. After that, all the vots are final, not further submit will be saved. 
                           </p>
                          </div>
                     </div>
