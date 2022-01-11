@@ -3,8 +3,10 @@
 This project allows user to vote the songs they like.
 
 ## System
+
 The system is build on React.js and Backend is fully MongoDB ( Atlas+ Realm + Graphql).
-Thanks github, host it as a github page. link is here : https://xiaolianbei.github.io/sining-competition/
+
+link : https://xiaolianbei.github.io/sining-competition/
 
 ## Development
 The repo contains front-end code and backend is non-code system. 
@@ -21,7 +23,7 @@ You will also see any lint errors in the console.
 ## Contact
 xiaolianbei.org@gmail.com
 
-###
+### Contributors
 Thanks photos on https://unsplash.com/
 
 Thanks Y&L software solution , Haizan Zeng ,jianping and others to make it happen. 
