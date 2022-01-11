@@ -23,6 +23,7 @@ function HomeView(props) {
  }
 
   return (
+    <>
   	  <section className="hero d-flex flex-column justify-content-center align-items-center" id="home">
             <ToastContainer limit={1} />
             <div className="bg-overlay"></div>
@@ -44,7 +45,9 @@ function HomeView(props) {
 
                     </div>
                </div>
-               <footer className="site-footer">
+              
+     </section>
+      <footer className="site-footer">
           <div className="container">
                <div className="row">
                     <div className="ml-auto col-lg-12 col-md-12">
@@ -60,8 +63,7 @@ function HomeView(props) {
                </div>
           </div>
      </footer>
-     </section>
-     
+     </>
   );
 }
 
