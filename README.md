@@ -8,6 +8,12 @@ The system is build on React.js and Backend is fully MongoDB ( Atlas+ Realm + Gr
 
 link : https://xiaolianbei.github.io/singing-competition/
 
+Test User:
+
+email: test@gmail.com
+
+Code: 123
+
 ## Development
 The repo contains front-end code and backend is non-code system. 
 
