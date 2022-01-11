@@ -173,7 +173,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
     color: var(--white-color);
   }
 
-
+  p.copyright-text {
+    font-size: 13px !important;
+  }
 
   /*---------------------------------------
      GENERAL               
@@ -599,10 +601,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
   .site-footer {
     padding: 0;
-    position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
+    background: black;
+    font-size: 12;
   }
 
   .site-footer a {
