@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import Typography from '@mui/material/Typography';
-import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
@@ -19,11 +17,15 @@ import { useLogout } from "../auth/auth";
 function View(props) {
 
 
-const [updateVote, mutationResults] = useUpdateMutation();
+const [updateVote] = useUpdateMutation();
 const logout = useLogout();
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+   '& .MuiDialog-paper': {
+    minWidth: "500px",
+  },
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
+    
   },
   '& .MuiDialogActions-root': {
     padding: theme.spacing(1),
@@ -32,7 +34,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 const [votes, setVotes] = useState([]);
 const [open, setOpen] = React.useState(false);
-const [voteSummary, setVoteSummary] =React.useState();
 const [disableSubmit, setDisableSubmit] = React.useState(false);
 
 useEffect(() => {
@@ -42,6 +43,7 @@ useEffect(() => {
     if(song.rank!==0 && song.rank !== ""){
       db_vote.push({ _id:song._id,  rank : song.rank , song: song.singer });
     }
+    return song;
   })
   setVotes(db_vote);
   }
@@ -66,6 +68,7 @@ const handleConfirm=()=>{
       song: vote.song, 
       access_token: props.token
     })
+    return vote;
   })
   updateVote(input);
   //logout();
@@ -81,7 +84,7 @@ const isVotesDuplicate= ()=>{
    // check duplicate
   for (var i = votes.length-1; i >= 0; i--) {
     if(parseInt(votes[i].rank) !==0 ){
-     if(rank[parseInt(votes[i].rank)]==0){
+     if(rank[parseInt(votes[i].rank)]===0){
         duplicate = true;
      }else{
       rank[parseInt(votes[i].rank)] = 0;
@@ -116,7 +119,7 @@ const handleRankingChange =(id,rank,name)=>{
   // update the rank if vote exists
   let isExist = false;
   for (var i = votes.length-1; i >= 0; i--) {
-    if(votes[i]._id == id){
+    if(votes[i]._id === id){
       votes[i]=vote ;
       isExist = true;
     }
@@ -162,7 +165,7 @@ const columns = [
   {
     name: 'Ranking',
     selector: row => {
-      return  <input type="number" min="0" max="6" class="form-control" defaultValue={row.rank} name="cf-name"  onChange={(event)=>handleRankingChange(row._id,event.target.value, row.singer)}/>
+      return  <input type="number" min="0" max="6" className="form-control" defaultValue={row.rank} name="cf-name"  onChange={(event)=>handleRankingChange(row._id,event.target.value, row.singer)}/>
     }
   }
   ]
@@ -170,7 +173,7 @@ const columns = [
 const data = props.data?props.data.songLists: [];
 
   return (
-  	  <section class="hero-list d-flex flex-column justify-content-center align-items-center">
+  	  <section className="hero-list d-flex flex-column justify-content-center align-items-center">
        <ToastContainer />
       <BootstrapDialog
         onClose={handleDialogClose}
@@ -184,7 +187,7 @@ const data = props.data?props.data.songLists: [];
           {!disableSubmit ? (<div>
             Here is the summary, please review it. You can click confirm and submit button to save the voting.
           </div>)
-           : <span style={{color:"red"}}> Found duplicate ranking number</span>}
+           : <span style={{color:"red"}}> Found Duplicated rank number</span>}
           <br/>
           <ul>
           {votes.map((v)=> (<li key={v.song}> {v.song}'s rank: {v.rank}  </li>))}
@@ -197,13 +200,13 @@ const data = props.data?props.data.songLists: [];
         </DialogActions>
       </BootstrapDialog>
 
-            <div class="bg-overlay-list"></div>
-               <div class="container">
-                    <div class="row">
-                         <div class="col-lg-10 col-md-10 mx-auto col-12">
-                          <h3 class="text-white" >Welcome to the NAAAC voting system</h3>
+            <div className="bg-overlay-list"></div>
+               <div className="container">
+                    <div className="row">
+                         <div className="col-lg-10 col-md-10 mx-auto col-12">
+                          <h3 className="text-white" >Welcome to the NAAAC voting system</h3>
                           <br/>
-                          <p class="text-white">
+                          <p className="text-white">
                              You have ten songs to review and you are allowed to vote six out of them. The ranking is 
                              from 1 to 6 where 1 is the highest rank and 6 is the lowest rank . 
                              In the six songs that you vote, each ranking should be unique. 
@@ -212,19 +215,19 @@ const data = props.data?props.data.songLists: [];
                           </p>
                          </div>
                     </div>
-                     <div class="row">
-                      <div class="col-lg-5 col-md-5  col-5"></div>
-                          <div class="col-lg-3 col-md-3 col-3">
-                              <button type="button" class="form-control" id="submit-button" onClick={onSubmit}>Submit my votes</button>
+                     <div className="row">
+                      <div className="col-lg-5 col-md-2  col-sm-12"></div>
+                          <div className="col-lg-3 col-md-5 col-sm-12 ">
+                              <button type="button" className="form-control" id="submit-button" onClick={onSubmit}>Submit my votes</button>
                           </div>
-                          <div class="col-lg-3 col-md-3  col-3">
-                                <button type="button" class="form-control" onClick={onCancel}>logout</button>
+                          <div className="col-lg-3 col-md-5   col-sm-12 ">
+                                <button type="button" className="form-control" onClick={onCancel}>logout</button>
                           </div>
                     </div>
-                    <div class="row">
-                         <div class="col-lg-10 col-md-10 mx-auto col-12">
+                    <div className="row">
+                         <div className="col-lg-10 col-md-10 mx-auto col-12">
 
-                              <div class="mt-5 text-center">
+                              <div className="mt-5 text-center">
                                  <DataTable
                                       columns={columns}
                                       data={data}

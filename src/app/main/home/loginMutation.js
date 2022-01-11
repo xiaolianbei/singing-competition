@@ -1,9 +1,7 @@
-import React from 'react';
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
 import { useAuthToken } from "../auth/auth";
 import { useHistory } from 'react-router-dom';
-import View from "./HomeView"
 
 
 export const loginMutationGQL = gql`

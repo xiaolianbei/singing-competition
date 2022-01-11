@@ -18,7 +18,7 @@ query get_song_list($access_token: String!) {
 function ListController(props) {
 
   // check access token is presented or not
-  const [token, setAuthToken, removeAuthtoken] = useAuthToken();
+  const [token] = useAuthToken();
   
 
  let { loading, error, data } = useQuery(GET_SONG_LIST,{
