@@ -18,7 +18,7 @@ function HomeView(props) {
 
  const onSubmit = (values) => {
   // replace current parm in url
-  window.history.replaceState({}, document.title, "/" );
+  window.history.replaceState({}, document.title, "./" );
   loginMutation(values.email, values.code);
  }
 
