@@ -8,6 +8,7 @@ import DialogContent from '@mui/material/DialogContent';
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
 import { ToastContainer, toast } from 'react-toastify';
+import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import 'react-toastify/dist/ReactToastify.css';
 import BootstrapDialogTitle from './BootstrapDialogTitle';
 import { useUpdateMutation } from "./updateMutation";
@@ -143,17 +144,17 @@ const onSubmit= ()=>{
 
 const columns = [
   {
-    name: 'Music name',
+    name: 'Name',
     selector: row => row.singer,
   },
   {
-    name: 'Music Link',
+    name: 'Click to Listen',
     selector: row => {
       return <a
         href={row.song}
         target="external-url"
       >
-        {row.song}
+        <PlayCircleFilledWhiteIcon/>
       </a>
 
       },
@@ -181,7 +182,7 @@ const data = props.data?props.data.songLists: [];
         </BootstrapDialogTitle>
         <DialogContent>
           {!disableSubmit ? (<div>
-            Here is the summary, please review it. You can click confirm and Submit button if it looks good to you. Thank you !
+            Here is the summary, please review it. You can click confirm and submit button to save the voting.
           </div>)
            : <span style={{color:"red"}}> Found duplicate ranking number</span>}
           <br/>
