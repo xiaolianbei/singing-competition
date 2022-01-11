@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 function HomeView(props) {
   
   if(props.warning) {
-      toast.error("The Email or Code you entered does not match our records. Please try again or contact xiaolianbei@gmail.com for help")
+      toast.error("The Email or Code you entered does not match our records. Please try again or contact xiaolianbei.org@gmail.com for help")
       toast.clearWaitingQueue();
   }
 
@@ -49,7 +49,7 @@ function HomeView(props) {
                <div class="row">
                     <div class="ml-auto col-lg-12 col-md-12">
                         <p class="copyright-text">
-                          If you have any questions, please contact xiaolianbei@gmail.com.
+                          If you have any questions, please contact xiaolianbei.org@gmail.com.
                         </p>
                     </div>
                     <div class="ml-auto col-lg-12 col-md-12">
