@@ -28,7 +28,9 @@ export const useLoginMutation = () => {
         history.push(path);
         return
       }else{
-       return <View warning={true}/>
+       let path = `/?warning`;
+        history.push(path);
+        return
       }
     },
   });

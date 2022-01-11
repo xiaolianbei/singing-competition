@@ -19,7 +19,7 @@ export const useLogout = () => {
   const logout = async () => {
     await apolloClient.clearStore(); // we remove all information in the store
     removeAuthToken();
-    window.location.href = '/#/logout';
+    window.location.href = './#/logout';
   };
   return logout;
 };

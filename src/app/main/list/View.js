@@ -169,7 +169,7 @@ const columns = [
 const data = props.data?props.data.songLists: [];
 
   return (
-  	  <section class="d-flex flex-column justify-content-center align-items-center">
+  	  <section class="hero-list d-flex flex-column justify-content-center align-items-center">
        <ToastContainer />
       <BootstrapDialog
         onClose={handleDialogClose}
@@ -186,7 +186,7 @@ const data = props.data?props.data.songLists: [];
            : <span style={{color:"red"}}> Found duplicate ranking number</span>}
           <br/>
           <ul>
-          {votes.map((v)=> (<li key={v.song_name}> {v.song_name}'s rank: {v.rank}  </li>))}
+          {votes.map((v)=> (<li key={v.song}> {v.song}'s rank: {v.rank}  </li>))}
           </ul>
         </DialogContent>
         <DialogActions>
@@ -196,21 +196,41 @@ const data = props.data?props.data.songLists: [];
         </DialogActions>
       </BootstrapDialog>
 
-            <div class="bg-overlay"></div>
+            <div class="bg-overlay-list"></div>
                <div class="container">
                     <div class="row">
-                         <div class="col-lg-8 col-md-10 mx-auto col-12">
-                              <div class="hero-text mt-5 text-center">
+                         <div class="col-lg-10 col-md-10 mx-auto col-12">
+                          <h3 class="text-white" >Welcome to the NAAAC voting system</h3>
+                          <br/>
+                          <p class="text-white">
+                             You have ten songs to vote for and rank's range is from 1 to 6 with 1 as the highest ranking.
+                             You are only be allowed to vote 6 out of 10 and each of the 6 songs shall have different rankings.
+                             By clicking Submit button, you can commit your voting after the confirm the summary. 
+                             You are allowed to recast your votes after submit. 
+                             Be aware that after --------, all the vots are final, not further submit will be saved. 
+                          </p>
+                         </div>
+                    </div>
+                     <div class="row">
+                      <div class="col-lg-5 col-md-5  col-5"></div>
+                          <div class="col-lg-3 col-md-3 col-3">
+                              <button type="button" class="form-control" id="submit-button" onClick={onSubmit}>Submit my votes</button>
+                          </div>
+                          <div class="col-lg-3 col-md-3  col-3">
+                                <button type="button" class="form-control" onClick={onCancel}>logout</button>
+                          </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-lg-10 col-md-10 mx-auto col-12">
+
+                              <div class="mt-5 text-center">
                                  <DataTable
                                       columns={columns}
                                       data={data}
                                       progressPending={props.loading} 
                                   />
                               </div>
-                              <div>
-                                <button type="button" class="form-control" id="cancel-button" onClick={onCancel}>Cancel</button>
-                                <button type="button" class="form-control" id="submit-button" onClick={onSubmit}>Submit</button>
-                              </div>
+                              
                          </div>
 
                     </div>

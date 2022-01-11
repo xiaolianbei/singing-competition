@@ -12,10 +12,13 @@ function Logout(props) {
                     <div class="row">
                          <div class="col-lg-8 col-md-10 mx-auto col-12">
                               <div class="hero-text mt-5 text-center">
-                                    <h3 class="text-white" >
-                                      Thank you to use NAAAC-North America Alumni Alliance Cup Singing Competition Ranking System</h3>
-                                    <h3 class="text-white" >Wish you have a nice day!</h3>
-                                    <button  type="button" onClick={onLogin} class="form-control" id="submit-button" name="submit">Sign in </button>
+                                    <h4 class="text-white" >
+                                      Thank you for using NAAAC-North America Alumni Alliance Cup Singing Competition Voting System</h4>
+                                    <h4 class="text-white" >Your votes is important to us !</h4>
+                                    <h4 class="text-white" >We will contact you later ! Wish you have a nice day!</h4>
+                              </div>
+                               <div class="col-lg-3 col-md-3 mx-auto col-3">
+                               <button  type="button" onClick={onLogin} class="form-control" id="submit-button" name="submit">Sign in to vote</button>
                               </div>
                              
                          </div>
