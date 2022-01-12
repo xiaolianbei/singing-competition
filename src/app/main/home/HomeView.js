@@ -52,7 +52,7 @@ function HomeView(props) {
                <div className="row">
                     <div className="ml-auto col-lg-12 col-md-12">
                         <p className="copyright-text">
-                          If you have any questions, please contact xiaolianbei.org@gmail.com.
+                          If you have any questions, please contact xiaolianbei.org@gmail.com.  Version : 1.0.1
                         </p>
                     </div>
                     <div className="ml-auto col-lg-12 col-md-12">
