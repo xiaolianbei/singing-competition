@@ -6,10 +6,10 @@ import HomeView from "../home/HomeView"
 import { useAuthToken } from "../auth/auth";
 
 const GET_SONG_LIST = gql`
-query get_song_list($access_token: String!) {
-  songLists(query: {access_token: $access_token}) {
-    singer
-    song
+query get_song_list($access_token: String!,$revieweremail: String!) {
+  songLists(query: {access_token: $access_token, revieweremail: $revieweremail}) {
+    SongName
+    SongLink
     rank
     _id
   }
@@ -18,12 +18,19 @@ query get_song_list($access_token: String!) {
 function ListController(props) {
 
   // check access token is presented or not
-  const [token] = useAuthToken();
+  const [cookie] = useAuthToken();
   
+  let token = "";
+  let email = "" 
+  if(cookie && cookie!==null){
+    token = cookie.split('&&')[0];
+    email = cookie.split('&&')[1];
+  }
 
  let { loading, error, data } = useQuery(GET_SONG_LIST,{
 	    variables: { 
 	    	access_token: token,
+        revieweremail: email
 	     },
 	 });
 

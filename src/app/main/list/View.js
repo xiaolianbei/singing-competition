@@ -41,7 +41,7 @@ useEffect(() => {
   if(props.data){
     props.data.songLists.map(song=>{
     if(song.rank!==0 && song.rank !== ""){
-      db_vote.push({ _id:song._id,  rank : song.rank , song: song.singer });
+      db_vote.push({ _id:song._id,  rank : song.rank , song: song.SongName });
     }
     return song;
   })
@@ -148,13 +148,13 @@ const onSubmit= ()=>{
 const columns = [
   {
     name: 'Name',
-    selector: row => row.singer,
+    selector: row => row.SongName,
   },
   {
     name: 'Click to Listen',
     selector: row => {
       return <a
-        href={row.song}
+        href={row.SongLink}
         target="external-url"
       >
         <PlayCircleFilledWhiteIcon/>
@@ -165,7 +165,7 @@ const columns = [
   {
     name: 'Ranking',
     selector: row => {
-      return  <input type="number" min="0" max="6" className="form-control" defaultValue={row.rank} name="cf-name"  onChange={(event)=>handleRankingChange(row._id,event.target.value, row.singer)}/>
+      return  <input type="number" min="0" max="6" className="form-control" defaultValue={row.rank} name="cf-name"  onChange={(event)=>handleRankingChange(row._id,event.target.value, row.SongName)}/>
     }
   }
   ]

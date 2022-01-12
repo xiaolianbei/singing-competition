@@ -8,6 +8,7 @@ export const loginMutationGQL = gql`
   mutation login($email: String!, $code: String!) {
     login(input: { email: $email,code:$code }) {
       token
+      email
     }
   }
 `;
@@ -21,7 +22,7 @@ export const useLoginMutation = () => {
   const [mutation, mutationResults] = useMutation(loginMutationGQL, {
     onCompleted: (data) => {
       if(data.login!==null){
-        setAuthToken(data.login.token);
+        setAuthToken(data.login.token + "&&" + data.login.email);
         let path = `./list`;
         history.push(path);
         return
