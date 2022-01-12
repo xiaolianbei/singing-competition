@@ -32,9 +32,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-const StyledDataTable =styled(DataTable)(({ theme }) => ({
-}));
-
 const [votes, setVotes] = useState([]);
 const [open, setOpen] = React.useState(false);
 const [disableSubmit, setDisableSubmit] = React.useState(false);
@@ -238,7 +235,7 @@ const data = props.data?props.data.songLists: [];
                          <div className="col-lg-10 col-md-10 mx-auto col-12">
 
                               <div className="mt-5 text-center">
-                                 <StyledDataTable
+                                 <DataTable
                                       columns={columns}
                                       data={data}
                                       progressPending={props.loading} 
