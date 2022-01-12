@@ -32,6 +32,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
+const StyledDataTable =styled(DataTable)(({ theme }) => ({
+}));
+
 const [votes, setVotes] = useState([]);
 const [open, setOpen] = React.useState(false);
 const [disableSubmit, setDisableSubmit] = React.useState(false);
@@ -147,8 +150,14 @@ const onSubmit= ()=>{
 
 const columns = [
   {
+    name: 'Index',
+    selector: (row, index) =>  { return <span> {index+1} </span> },
+    width: "10%",
+  },
+  {
     name: 'Name',
     selector: row => row.SongName,
+    width: "55%",
   },
   {
     name: 'Click to Listen',
@@ -161,6 +170,7 @@ const columns = [
       </a>
 
       },
+       width: "15%",
   },
   {
     name: 'Ranking',
@@ -211,7 +221,7 @@ const data = props.data?props.data.songLists: [];
                              from 1 to 6 where 1 is the highest rank and 6 is the lowest rank . 
                              In the six songs that you vote, each ranking should be unique. 
                              By clicking Submit button, you will see a summary, you can commit your votes after confirming the summary. 
-                             You are allowed to recast your votes before --------. After that, all the vots are final, not further submit will be saved. 
+                             You are allowed to recast your votes before <b>01/14/2022 15:00 PM PST</b>. After that, all the vots are final, not further submit will be saved. 
                           </p>
                          </div>
                     </div>
@@ -228,7 +238,7 @@ const data = props.data?props.data.songLists: [];
                          <div className="col-lg-10 col-md-10 mx-auto col-12">
 
                               <div className="mt-5 text-center">
-                                 <DataTable
+                                 <StyledDataTable
                                       columns={columns}
                                       data={data}
                                       progressPending={props.loading} 
