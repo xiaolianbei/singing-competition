@@ -218,7 +218,7 @@ const data = props.data?props.data.songLists: [];
                              from 1 to 6 where 1 is the highest rank and 6 is the lowest rank, O is no rank. 
                              In the six songs that you vote, each ranking should be unique. 
                              By clicking Submit button, you will see a summary, you can commit your votes after confirming the summary. 
-                             You are allowed to recast your votes before <b>01/14/2022 15:00 PM PST</b>. After that, all the vots are final, not further submit will be saved. 
+                             You are allowed to recast your votes before <b>01/14/2022 21:00 PM PST</b>. After that, all the vots are final, not further submit will be saved. 
                           </p>
                          </div>
                     </div>

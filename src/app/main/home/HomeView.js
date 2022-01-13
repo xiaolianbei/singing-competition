@@ -35,7 +35,7 @@ function HomeView(props) {
                                     <h6 data-aos="fade-up" data-aos-delay="300">Welcome to NAAAC-North America Alumni Alliance Cup Singing Competition Voting System</h6>
                                     <h1 className="text-white" data-aos="fade-up" data-aos-delay="500">NAAAC</h1>
                               <form  onSubmit={handleSubmit(onSubmit)}>
-                              <input type="email" className="form-control" name="cf-email" placeholder="Email"   {...register("email",{ required: "Please enter your email." })}  />
+                              <input type="email" className="form-control" name="cf-email" placeholder="Email  (lowercase) "   {...register("email",{ required: "Please enter your email." })}  />
                               <input type="text" className="form-control" name="cf-group" placeholder="Group"  {...register("code",{ required: "Please enter your code." })} />
                               <button disabled={disableForm} type="submit" className="form-control" id="submit-button" name="submit">Sign in </button>
                             </form>
@@ -52,7 +52,7 @@ function HomeView(props) {
                <div className="row">
                     <div className="ml-auto col-lg-12 col-md-12">
                         <p className="copyright-text">
-                          If you have any questions, please contact xiaolianbei.org@gmail.com.  Version : 1.0.1
+                          If you have any questions, please contact xiaolianbei.org@gmail.com.  Version : 1.0.2
                         </p>
                     </div>
                     <div className="ml-auto col-lg-12 col-md-12">
