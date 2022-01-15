@@ -2,6 +2,7 @@ import React from "react";
 import gql from 'graphql-tag';
 import { useQuery } from "@apollo/react-hooks";
 import View from "./View"
+import FinalView from "./FinalView"
 import HomeView from "../home/HomeView"
 import { useAuthToken } from "../auth/auth";
 
@@ -38,6 +39,9 @@ function ListController(props) {
  if (typeof(token) === 'undefined' || token === "") {
  		return <HomeView />;
  }
- return <View loading={loading} error={error}  data={ data } token={token} />
+ if(Date.now() < new Date(2022, 1, 14, 21, 0, 0) ) {
+     return <FinalView loading={loading} error={error}  data={ data } token={token} />
+ }
+ return <FinalView loading={loading} error={error}  data={ data } token={token} />
 }
 export default ListController;
