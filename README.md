@@ -29,8 +29,13 @@ You will also see any lint errors in the console.
 ## Contact
 xiaolianbei.org@gmail.com
 
+## Versioninig
+1.0.2 & dev active version
+1.1.0 finalize version, read only. 
 
 ## Contributors
 Thanks photos on https://unsplash.com/
 
 Thanks Y&L software solution , Haizan Zeng ,jianping and others to make it happen. 
+
+
