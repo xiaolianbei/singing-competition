@@ -209,7 +209,8 @@ const data = props.data?props.data.songLists: [];
                           <h3 className="text-white" >Welcome to the NAAAC voting system</h3>
                           <br/>
                           <p className="text-white">
-                             The voting has ended at <b>01/14/2022 21:00 PM PST</b>. Here is the final view of your voting. Thanks very much for participating the competition.
+                             The voting has ended at <b>01/14/2022 21:00 PM PST</b>. Here is the final view of your voting. Thanks very much for participating the competition. 
+                             If you have any questions please reach out xiaolianbei.org@gmail.com .
                           </p>
                          </div>
                     </div>

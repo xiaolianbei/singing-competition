@@ -40,7 +40,7 @@ function ListController(props) {
  		return <HomeView />;
  }
  if(Date.now() < new Date(2022, 1, 14, 21, 0, 0) ) {
-     return <View loading={loading} error={error}  data={ data } token={token} />
+     return <FinalView loading={loading} error={error}  data={ data } token={token} />
  }
  return <FinalView loading={loading} error={error}  data={ data } token={token} />
 }
